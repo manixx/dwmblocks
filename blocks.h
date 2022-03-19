@@ -1,5 +1,6 @@
 static const Block blocks[] = {
 	/*Icon*/	/*Command*/													/*Update Interval*/	/*Update Signal*/
+	{" ", 		"~/.local/bin/governor",						30,									0},
 	{" ", 		"~/.local/bin/dwmblocks/temp",			30,									0},
 	{" ", 		"~/.local/bin/dwmblocks/memory",		30,									0},
 	{" ", 		"~/.local/bin/dwmblocks/load",			30,									0},
