@@ -1,7 +1,6 @@
 static const Block blocks[] = {
 	/*Icon*/	/*Command*/																						/*Update Interval*/	/*Update Signal*/
 	{"", 			"pgrep > /dev/null -x xautolock && echo  || echo  ",	10,									0},
-	{" ", 		"~/.local/bin/governor",																30,									0},
 	{" ", 		"~/.local/bin/dwmblocks/temp",													30,									0},
 	{" ", 		"~/.local/bin/dwmblocks/memory",												30,									0},
 	{" ", 		"~/.local/bin/dwmblocks/load",													30,									0},
