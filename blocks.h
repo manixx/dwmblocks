@@ -1,5 +1,5 @@
 static const Block blocks[] = {
-	{"",   "pgrep > /dev/null -x xautolock && echo  || echo  ", 10, 0},
+	{"",   "pgrep > /dev/null -x xss-lock && echo  || echo  ", 10, 0},
 	{" ", "dwmblocks-memory",                                    30, 0},
 	{" ", "dwmblocks-load",                                      30, 0},
 	{" ", "dwmblocks-battery",                                   15, 0},
