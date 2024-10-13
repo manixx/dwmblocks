@@ -1,6 +1,7 @@
 #!/bin/sh
 
 battery_dir="/sys/class/power_supply/BAT0"
+alarm_level=10 # in percent
 
 capacity=$(cat $battery_dir/capacity)
 power_now=$(cat $battery_dir/power_now)
@@ -13,6 +14,18 @@ if [ $status = 'Unknown' ]; then
 else
 	remaning_minutes=$(echo ${power_now} ${energy_now} | awk '{ printf "%d", $2 / $1 * 60 }')
 	until_empty=$(date -d "+${remaning_minutes} minutes" "+%H:%M")
+fi
+
+if [ "${status}" = "Discharging" ] \
+	&& [ "${capacity}" -lt "${alarm_level}" ]; then
+	if ! [ -f ~/.no-bat-warn ]; then
+		notify-send \
+			-u critical \
+			"Battery empty in ${remaning_minutes} minutes!" \
+			"Battery is at ${capacity}% - better got it charged up!"
+	fi
+else
+	rm -f ~/.no-bat-warn
 fi
 
 echo \
